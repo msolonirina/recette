@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Les types {% endblock %}
+
+{% block monTitre %}
+Modifier {{ type.libelle }}
+
+{% endblock %}
+
+
+{% block body %}
+{{form_start(form)}}
+
+    <div class="row">
+        <div class="col-6">
+            <img src="{{ asset('images/' ~ type.image )}}" style= "width:25%">
+            <div>{{ form_row(form.libelle, {"attr" : {'class':'text-danger bg-success'}, "label" : "Nom de l'aliment" })}}</div>
+        </div>
+        <div class="col-6">
+            {{form_widget(form)}}
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Enregistrer">
+{{form_end(form)}}
+{% endblock %}
